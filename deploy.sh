@@ -1,7 +1,12 @@
 #!/bin/bash
 
-echo "Deploying..."
+echo "Starting deployment..."
 
-sudo cp -r ~/mywebsite/* /var/www/html/
+cd ~/devops-project
 
-echo "Done"
+git pull origin main
+
+sudo rm -rf /var/www/html/*
+sudo cp -r ~/devops-project/* /var/www/html/
+
+echo "Deployment successful!"
